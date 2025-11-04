@@ -50,23 +50,15 @@ Console.WriteLine($"Tid til at sortere: {stopwatch.Elapsed.TotalMilliseconds} ms
 */
 
 
-Stopwatch stopwatchTests = new Stopwatch();
 
 Console.WriteLine("---------------------------ints10000---------------------------");
-stopwatchTests.Start();
+
 Sort.Test(ints10000, algorithms, 10);
-stopwatchTests.Stop();
 
 Console.WriteLine("---------------------------semisorted---------------------------");
 
-stopwatchTests.Start();
 Sort.Test(semiSorted, algorithms, 10);
-stopwatchTests.Stop();
 
 Console.WriteLine("---------------------------worstcase---------------------------");
 
-stopwatchTests.Start();
 Sort.Test(worstCase, algorithms, 10);
-stopwatchTests.Stop();
-
-Console.WriteLine($"Total for all tests: {stopwatchTests.Elapsed.TotalMilliseconds} ms");
