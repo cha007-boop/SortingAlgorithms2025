@@ -9,8 +9,6 @@ int[] ints10000 = Read.ReadNumbersFromFile("10000.txt");
 int[] semiSorted = Read.ReadNumbersFromFile("semisorted.txt");
 int[] worstCase = Read.ReadNumbersFromFile("worstcase.txt");
 
-
-
 List<ISort> algorithms = new List<ISort>
 {
     new Bubble(),
@@ -40,6 +38,7 @@ stopwatch.Start();
 //algorithms[3].Sort(ints10000);
 //algorithms[4].Sort(ints10000);
 
+
 // Stop tidsmåling
 stopwatch.Stop();
 
@@ -48,7 +47,6 @@ PrintArray(ints10000);
 // Udskriv tiden, det tog at sortere arrayet
 Console.WriteLine($"Tid til at sortere: {stopwatch.Elapsed.TotalMilliseconds} ms");
 */
-
 
 
 Console.WriteLine("---------------------------ints10000---------------------------");

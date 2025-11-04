@@ -13,7 +13,7 @@ namespace SortingAlgorithms2025.Algorithms
         {
             QuickSort(array, 0, array.Length - 1);
         }
-        public void QuickSort(int[] array, int low, int high)
+        private void QuickSort(int[] array, int low, int high)
         {
             if (low < high)
             {
@@ -21,10 +21,12 @@ namespace SortingAlgorithms2025.Algorithms
                 int pivotIndex = Partition(array, low, high);
 
                 // Recursivly apply QuickSort on elements before pivot
-                QuickSort(array, low, pivotIndex - 1);
+                if (pivotIndex > 1)
+                    QuickSort(array, low, pivotIndex - 1);
 
                 // Recursively apply QuickSort on elements after pivot
-                QuickSort(array, pivotIndex + 1, high);
+                if (pivotIndex + 1 < high)
+                    QuickSort(array, pivotIndex + 1, high);
             }
         }
 
@@ -39,7 +41,7 @@ namespace SortingAlgorithms2025.Algorithms
         /// <returns>
         /// Returns the correct index of the pivot element.
         /// </returns>
-        public int Partition(int[] array, int low, int high)
+        private int Partition(int[] array, int low, int high)
         {
             int pivot = array[high];
             int i = low - 1;
@@ -56,7 +58,6 @@ namespace SortingAlgorithms2025.Algorithms
             Swap(ref array[i + 1], ref array[high]);
             return i + 1;
         }
-
 
         /// <summary>
         /// Swap two integers by reference.
