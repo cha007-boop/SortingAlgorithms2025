@@ -11,20 +11,34 @@ namespace SortingAlgorithms2025.Algorithms
     {
         public void Sort(int[] array)
         {
-            //quick sort
             QuickSort(array, 0, array.Length - 1);
         }
         public void QuickSort(int[] array, int low, int high)
         {
             if (low < high)
             {
+                // Find the correct location for the pivot-element in the sorted array
                 int pivotIndex = Partition(array, low, high);
 
+                // Recursivly apply QuickSort on elements before pivot
                 QuickSort(array, low, pivotIndex - 1);
+
+                // Recursively apply QuickSort on elements after pivot
                 QuickSort(array, pivotIndex + 1, high);
             }
         }
 
+        /// <summary>
+        /// Moves elements smaller than pivot to left and greater to right.
+        /// </summary>
+        /// <remarks>
+        /// All elements with index lower than pivot is less than or equal to pivot.
+        /// All elements with index higher than pivot is greater than pivot.
+        /// So the pivot-element is in its correct sorted position.
+        /// </remarks>
+        /// <returns>
+        /// Returns the correct index of the pivot element.
+        /// </returns>
         public int Partition(int[] array, int low, int high)
         {
             int pivot = array[high];
@@ -43,6 +57,12 @@ namespace SortingAlgorithms2025.Algorithms
             return i + 1;
         }
 
+
+        /// <summary>
+        /// Swap two integers by reference.
+        /// </summary>
+        /// <param name="a"> First integer to swap</param>
+        /// <param name="b"> Second integer to swap</param>
         private void Swap(ref int a, ref int b)
         {
             int temp = a;
