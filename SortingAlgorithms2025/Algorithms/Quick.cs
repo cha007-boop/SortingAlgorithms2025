@@ -32,8 +32,8 @@ namespace SortingAlgorithms2025.Algorithms
         /// Moves elements smaller than pivot to left and greater to right.
         /// </summary>
         /// <remarks>
-        /// All elements with index lower than pivot is less than or equal to pivot.
-        /// All elements with index higher than pivot is greater than pivot.
+        /// All elements with index lower than pivot will be less than or equal to pivot.
+        /// All elements with index higher than pivot will be greater than pivot.
         /// So the pivot-element is in its correct sorted position.
         /// </remarks>
         /// <returns>
