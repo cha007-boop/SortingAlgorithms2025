@@ -41,7 +41,7 @@ namespace SortingAlgorithms2025.Algorithms
         /// <returns>
         /// Returns the correct index of the pivot element.
         /// </returns>
-        private int Partition(int[] array, int low, int high)
+        private int Partition2(int[] array, int low, int high)
         {
             int pivot = array[high];
             int i = low - 1;
@@ -57,6 +57,34 @@ namespace SortingAlgorithms2025.Algorithms
 
             Swap(ref array[i + 1], ref array[high]);
             return i + 1;
+        }
+
+        // More effecient than Partition2
+        private int Partition(int[] array, int l, int r)
+        {
+            int midt = (l + r) / 2;
+            int pivot = array[midt];
+
+            while (l <= r)
+            {
+                while (array[l] < pivot)
+                {
+                    l++;
+                }
+
+                while (array[r] > pivot)
+                {
+                    r--;
+                }
+
+                if (l <= r)
+                {
+                    Swap(ref array[l], ref array[r]);
+                    l++;
+                    r--;
+                }
+            }
+            return l;
         }
 
         /// <summary>
