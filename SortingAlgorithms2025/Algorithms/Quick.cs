@@ -48,7 +48,7 @@ namespace SortingAlgorithms2025.Algorithms
             {
                 if (array[j] <= pivot)
                 {
-                    i = i + 1;
+                    i++;
                     Swap(ref array[i], ref array[j]);
                 }
             }

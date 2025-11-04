@@ -18,7 +18,7 @@ namespace SortingAlgorithms2025
                 Console.WriteLine(algorithm.ToString());
                 for (int i = 0; i < iterations; i++)
                 {
-                    int[] arrayCopy = (int[])arrayToSort.Clone();
+                    int[] arrayCopy = arrayToSort.ToArray();
                     stopwatch.Restart();
                     algorithm.Sort(arrayCopy);
                     stopwatch.Stop();
