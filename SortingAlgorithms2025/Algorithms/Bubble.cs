@@ -31,11 +31,13 @@ namespace SortingAlgorithms2025.Algorithms
             }
         }
 
+        // Alternatively only using forloops
         public void Sort2(int[] array)
         {
             int n = array.Length;
             for (int i = 0; i < n - 1; i++)
             {
+                // Second for loop goes to n-i-1 because last i elements are already sorted
                 for (int j = 0; j < n - i - 1; j++)
                 {
                     if (array[j] > array[j + 1])

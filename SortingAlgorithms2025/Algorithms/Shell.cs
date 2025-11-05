@@ -18,13 +18,14 @@ namespace SortingAlgorithms2025.Algorithms
             while (gap > 0)
             {
                 // Performs a "gapped" insertion sort
-                for (int i = gap; i < n - 1; i++)
+                for (int i = gap; i < n; i++)
                 {
                     // Current element to be placed correctly
                     int temp = array[i];
                     int j = i;
 
-                    // Shift all elements greater than temp to make space  
+                    // Like insertion sort, shift elements greater than temp up,
+                    // but instead of going down the array by 1, go down by gap
                     while (j >= gap && array[j - gap] > temp)
                     {
                         array[j] = array[j - gap];

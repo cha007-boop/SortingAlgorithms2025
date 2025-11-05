@@ -17,12 +17,14 @@ namespace SortingAlgorithms2025.Algorithms
             {
                 int minIndex = i;
 
+                // Finds the index of the smallest element in the unsorted part of the array
                 for (int j = i + 1; j < n; j++)
                 {
                     if (array[j] < array[minIndex])
                         minIndex = j;
                 }
 
+                // Swap the found minimum element with the first element of the unsorted part
                 if (minIndex != i)
                 {
                     int temp = array[i];

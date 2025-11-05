@@ -13,6 +13,10 @@ namespace SortingAlgorithms2025.Algorithms
         {
             QuickSort(array, 0, array.Length - 1);
         }
+
+        /// <summary>
+        /// Sorts the array using the QuickSort algorithm.
+        /// </summary>
         private void QuickSort(int[] array, int low, int high)
         {
             if (low < high)
@@ -21,26 +25,14 @@ namespace SortingAlgorithms2025.Algorithms
                 int pivotIndex = Partition(array, low, high);
 
                 // Recursivly apply QuickSort on elements before pivot
-                if (pivotIndex > 1)
-                    QuickSort(array, low, pivotIndex - 1);
+                QuickSort(array, low, pivotIndex - 1);
 
                 // Recursively apply QuickSort on elements after pivot
-                if (pivotIndex + 1 < high)
-                    QuickSort(array, pivotIndex + 1, high);
+                QuickSort(array, pivotIndex + 1, high);
             }
         }
 
-        /// <summary>
-        /// Moves elements smaller than pivot to left and greater to right.
-        /// </summary>
-        /// <remarks>
-        /// All elements with index lower than pivot will be less than or equal to pivot.
-        /// All elements with index higher than pivot will be greater than pivot.
-        /// So the pivot-element is in its correct sorted position.
-        /// </remarks>
-        /// <returns>
-        /// Returns the correct index of the pivot element.
-        /// </returns>
+        
         private int Partition2(int[] array, int low, int high)
         {
             int pivot = array[high];
@@ -59,32 +51,49 @@ namespace SortingAlgorithms2025.Algorithms
             return i + 1;
         }
 
-        // More effecient than Partition2
-        private int Partition(int[] array, int l, int r)
+        /// <summary>
+        /// Finds the correct index of the pivot element and partitions the array around the pivot.
+        /// </summary>
+        /// <remarks>
+        /// All elements with index lower than pivot will be less than or equal to pivot.
+        /// All elements with index higher than pivot will be greater than pivot.
+        /// So the pivot-element is in its correct sorted position.
+        /// </remarks>
+        /// <param name="array"> The array to partition</param>
+        /// <param name="left"> The loweset index of the subarray to partition</param>
+        /// <param name="right"> The highest index of the subarray to partition</param>
+        /// <returns>
+        /// Returns the correct index of the pivot element.
+        /// </returns>
+        private int Partition(int[] array, int left, int right)
         {
-            int midt = (l + r) / 2;
-            int pivot = array[midt];
+            int mid = (left + right) / 2;
+            int pivot = array[mid];
 
-            while (l <= r)
+            while (left <= right)
             {
-                while (array[l] < pivot)
+                // Increases left index while element at left is less than pivot
+                while (array[left] < pivot)
                 {
-                    l++;
+                    left++;
                 }
 
-                while (array[r] > pivot)
+                // Decreases right index while element at right is greater than pivot
+                while (array[right] > pivot)
                 {
-                    r--;
+                    right--;
                 }
 
-                if (l <= r)
+                // If left index is less than or equal to right, swap elements and move indices
+                if (left <= right)
                 {
-                    Swap(ref array[l], ref array[r]);
-                    l++;
-                    r--;
+                    Swap(ref array[left], ref array[right]);
+                    left++;
+                    right--;
                 }
             }
-            return l;
+            // At this point, left is the index of the pivot element in the sorted array
+            return left;
         }
 
         /// <summary>
