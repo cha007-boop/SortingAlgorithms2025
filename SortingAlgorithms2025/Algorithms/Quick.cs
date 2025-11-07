@@ -32,7 +32,9 @@ namespace SortingAlgorithms2025.Algorithms
             }
         }
 
-        
+
+        // Partition as described in the Quick sort doc pseudo code
+        // Less efficient than the other Partition method
         private int Partition2(int[] array, int low, int high)
         {
             int pivot = array[high];
